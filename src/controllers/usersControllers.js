@@ -74,13 +74,13 @@ const login = async (req, res) => {
     return res.status(200).send({
       message: 'login success',
       token: token
-    })
+    });
 
   } catch (error) {
     return res.send({
       message: 'server error',
       serverMessage: error.message
-    })
+    });
   }
 }
 

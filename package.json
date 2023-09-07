@@ -1,13 +1,13 @@
 {
   "name": "vrent-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "backend of vrent application",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/index.js",
     "start": "node ./src/index.js"
   },
-  "author": "",
+  "author": "kelompok-5",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",

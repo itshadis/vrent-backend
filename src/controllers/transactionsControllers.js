@@ -21,7 +21,7 @@ const getAllTransactions = async (req, res) => {
     return res.send({
       message: 'server error',
       serverMessage: error.message
-    })
+    });
   }
 }
 
@@ -47,7 +47,7 @@ const insertNewTransaction = async (req, res) => {
     const { id } = req.user;
     
     if(!req.user) {
-      return res.status(403).send({
+      return res.status(401).send({
         message: 'you have to login to reserve a car'
       })
     }
@@ -62,12 +62,19 @@ const insertNewTransaction = async (req, res) => {
       pickoff_time
     } = req.body;
 
+    //tugas siapa
+    //ambil data car berdasarkan id di database
+    
+
     if(!car_id || !pickup_date || !pickoff_date || !pickup_location || !pickoff_location || !pickup_time || !pickoff_time) {
       return res.status(400).send({
         message: 'some field must be filled, cannot be empty'
       });
     }
     
+    //validasi ketersediaan mobil
+    //bandingkan status ketersediaan mobil
+
     await createTransaction(car_id, pickup_date, pickoff_date, pickup_location, pickoff_location, id, pickup_time, pickoff_time);
 
     return res.status(201).send({
